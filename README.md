@@ -25,7 +25,8 @@ Fabric Explorer
 
 ```bash
 npm run build
-``
+```
+
 After a few seconds, you will see the following information:
 
 ```bash
