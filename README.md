@@ -25,7 +25,8 @@ Fabric Explorer
 
 ```bash
 npm run build
-``
+```
+
 After a few seconds, you will see the following information:
 
 ```bash
@@ -45,3 +46,22 @@ File sizes after gzip:
 `build` commond will pack all the resources
 ，including JavaScript, CSS, web fonts, images, html and so on. And then you can find those files in `dist/` directory.
 
+
+
+### API Proxy 
+
+
+In `nginx.conf`,  replace with the below configure:
+
+```text
+        location / {
+            root   /YOUR_PATH/dist;
+            index  index.html;
+        }
+
+        location /api {
+            proxy_pass http://YOUR_API_URL/;
+        }
+```
+
+By default, `YOUR_API_URL` is `192.168.6.204:8080`.
