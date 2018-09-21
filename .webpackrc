@@ -3,10 +3,10 @@
     ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
   ],
   "proxy": {
-    "/api": {
+    "/api/v1/": {
       "target": "http://192.168.6.204:8080/",
       "changeOrigin": false,
-      "pathRewrite": { "^/api" : "" }
+      "pathRewrite": { "^/api/v1" : "" }
     },
     "/fabric": {
       "target": "http://192.168.6.204:8111/",

@@ -2,8 +2,8 @@
 import request from '../utils/request';
 
 
-export function getTxById(txid) {
-  return request(`/api/gettxbyid?txid=${txid}`);
+export function getTxByid(params) {
+  return request(`/v1/api/gettxbyid?txid=${params}`);
 }
 
 export function getLastBlock() {
