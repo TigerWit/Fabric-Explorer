@@ -1,4 +1,4 @@
-import { getTxByid } from '../services/api';
+import { getTxById } from '../services/api';
 
 export default {
 
@@ -8,7 +8,7 @@ export default {
 
   effects: {
     *fetchTransaction({ payload }, { call, put }) {
-      const response = yield call(getTxByid, payload);
+      const response = yield call(getTxById, payload);
       yield put({
         type: 'queryTransaction',
         payload: response,

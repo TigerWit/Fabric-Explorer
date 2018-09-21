@@ -1,30 +1,61 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'dva';
-import SearchForm from '../components/SearchForm';
+import Header from '../components/Header';
 import styles from './IndexPage.css';
+import { Layout, Col, Row} from 'antd';
+import  Dashboard  from '../components/Dashboard';
+import BlockList from '../components/BlockList';
+import TransactionList from '../components/TransactionList';
 
-const IndexPage = ({ dispatch }) =>  {
+const { Content } = Layout;
 
-  function handleSearch(txid) {
-    window.location = `/#/tx/${txid}`;
+
+@connect(({ dashboard }) => ({
+  dashboard
+}))
+export default class IndexPage extends PureComponent {
+
+  handleSearch(txid) {
+    window.location = `/explorer/#/tx/${txid}`;
   }
 
-  return (
-    <div className={styles.normal}>
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'dashboard/fetchLastBlock',
+    });
+  }
+  render() {
+    const data = this.props.dashboard || {};
+    const lastBlock = data.lastBlock || {}
+    const blocks = data.blocks || {}
+    const transactions = data.transactions || {}
+    return (
+      <div className={styles.normal}>
+        <Header onSearch={this.handleSearch}></Header>
+        <Layout >
+          <Content style={{ padding: '30px' }}> 
+            <Dashboard lastBlock={lastBlock}></Dashboard>
+            <div className={styles.content} >
+              <Row gutter={11} >
+                <Col span={5} style={{ width: 491}}>
+                  <BlockList blocks={blocks}></BlockList>
+                </Col>
+                <Col span={5} style={{ width: 491}}>
+                  <TransactionList transactions={transactions}></TransactionList>
+                </Col>
+              </Row>
+              
+            </div>
+          </Content>
+          
+        </Layout>
 
-      <div  className={styles.search_main} >
-        <div className={styles.logo}></div>
-        <div className={styles.search_big}>        
-            <SearchForm  onSearch={handleSearch} />     
-        </div>
-        
       </div>
-
-    </div>
-  );
+    );
+  }
 }
 
 IndexPage.propTypes = {
 };
-
-export default connect()(IndexPage);
+ 

@@ -7,6 +7,11 @@
       "target": "http://192.168.6.204:8080/",
       "changeOrigin": false,
       "pathRewrite": { "^/api" : "" }
+    },
+    "/fabric": {
+      "target": "http://192.168.6.204:8111/",
+      "changeOrigin": false,
+      "pathRewrite": { "^/fabric" : "" }
     }
   }
 }

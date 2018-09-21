@@ -17,7 +17,6 @@ export default class Transaction extends PureComponent {
         <div> Status: {tranaction.validation_code_name}</div>
         <div> Timestamp : {tranaction.timestamp.seconds}</div>
       </div>
-
     )
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
 import IndexPage from './routes/IndexPage';
 import Transaction from './routes/Transaction';
+import Block from './routes/Block';
 
 function RouterConfig({ history }) {
   return (
@@ -9,6 +10,7 @@ function RouterConfig({ history }) {
       <Switch>
         <Route path="/" exact component={IndexPage} />
         <Route path="/tx/:txid" exact component={Transaction} />
+        <Route path="/block/:blockNum" exact component={Block} />
       </Switch>
     </Router>
   );
