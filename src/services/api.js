@@ -2,7 +2,7 @@
 import request from '../utils/request';
 
 
-export function getTxByid(params) {
+export function getTxById(params) {
   return request(`/v1/api/gettxbyid?txid=${params}`);
 }
 
