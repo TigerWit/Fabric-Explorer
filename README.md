@@ -9,12 +9,19 @@ Fabric Explorer
 
 ```json
   "proxy": {
-    "/api": {
+    "/v1/api": {
 -      "target": "http://192.168.6.204:8080/",
 +      "target": "YOUR_OWN_API_URL",
       "changeOrigin": false,
       "pathRewrite": { "^/api" : "" }
-    }
+    },
+    "/v1/fabric": {
+-      "target": "http://192.168.6.204:8111/",
++      "target": "YOUR_OWN_API_URL",
+      "changeOrigin": false,
+      "pathRewrite": { "^/api" : "" }
+    },
+
   }
 ```
 2. Run `npm start`.
@@ -59,8 +66,11 @@ In `nginx.conf`,  replace with the below configure:
             index  index.html;
         }
 
-        location /api {
+        location /v1/api {
             proxy_pass http://YOUR_API_URL/;
+        }
+        location /v1/fabric {
+            proxy_pass http://YOUR_API_URL_FABRIC/;
         }
 ```
 

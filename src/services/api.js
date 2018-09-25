@@ -7,19 +7,19 @@ export function getTxById(params) {
 }
 
 export function getLastBlock() {
-	return request(`/fabric/getchannelinfo`);
+	return request(`/v1/fabric/getchannelinfo`);
 }
 
 export function getLastBlockList(num) {
-	return request(`/fabric/getlastblocks?num=${num}`);
+	return request(`/v1/fabric/getlastblocks?num=${num}`);
 }
 
 export function getLaskTransactionList(num) {
-	return request(`/fabric/getlasttxs?num=${num}`);
+	return request(`/v1/fabric/getlasttxs?num=${num}`);
 }
 
 
 export function getBlock(blocknum) {
-	return request(`/fabric/gettxsbyblocknum?blocknum=${blocknum}`);
+	return request(`/v1/fabric/gettxsbyblocknum?blocknum=${blocknum}`);
 }
 

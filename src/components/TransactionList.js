@@ -17,7 +17,7 @@ export default class TransactionList extends PureComponent {
           renderItem={item => (
             <List.Item>
               <List.Item.Meta
-              title={ <div>Block: {item.block_num}  CreatedAt: {item.created} </div> }
+              title={ <div>Block: {item.block_num}  <div className={styles.time}> CreatedAt: {item.created}</div> </div> }
               description={<div className={styles.tx_link}> <Link to={`/tx/${item.tx_id}`}>{item.tx_id}</Link></div> }
               />
            </List.Item>

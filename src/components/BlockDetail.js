@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
-
 import { List} from 'antd';
-
+import { Link } from 'react-router-dom';
 
 import styles from './BlockDetail.css';
 
@@ -28,9 +26,7 @@ export default class BlockDetail extends PureComponent {
               />
       	  	</List.Item>
       	  )}
-        />
- 
-       
+        />  
       </div>
     )
   }

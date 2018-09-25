@@ -7,6 +7,7 @@ import  Dashboard  from '../components/Dashboard';
 import BlockList from '../components/BlockList';
 import TransactionList from '../components/TransactionList';
 
+
 const { Content } = Layout;
 
 
@@ -19,12 +20,31 @@ export default class IndexPage extends PureComponent {
     window.location = `/explorer/#/tx/${txid}`;
   }
 
+
+
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'dashboard/fetchLastBlock',
-    });
+    this.loopData();
   }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+    cancelAnimationFrame(this.requestRef);
+  }
+
+
+  loopData = () => {
+    const { dispatch } = this.props;
+
+    this.requestRef = requestAnimationFrame(() => {
+      this.timer = setTimeout(() => {
+        dispatch({
+          type: 'dashboard/fetchLastBlock',
+        });
+        this.loopData();
+      }, 4000);
+    })
+  };
+
   render() {
     const data = this.props.dashboard || {};
     const lastBlock = data.lastBlock || {}
