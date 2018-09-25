@@ -31,7 +31,9 @@ export default class Transaction extends PureComponent {
     if (data && data.status.code === 200) {
       return <TransactionDetail tranaction={data.tx_info}/>;
     }
-    return (<div> Not Found</div>);
+    if (data && data.status.code !== 200) {
+      return (<div> Not Found </div>);
+    }   
   }
 
   render() {

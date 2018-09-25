@@ -28,10 +28,12 @@ export default class Block extends PureComponent {
 
   content = () => {
     const block = this.props.block || {};
-    if (block && block.status && block.status.code === 200) {
+    if (block.status && block.status.code === 200) {
       return <BlockDetail block={block}/>;
     }
-    return (<div> Not Found</div>);
+    if (block.status && block.status.code !== 200) {
+      return (<div> Not Found</div>);
+    }
   }
 
   render() {
