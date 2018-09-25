@@ -58,10 +58,10 @@ export default class IndexPage extends PureComponent {
             <Dashboard lastBlock={lastBlock}></Dashboard>
             <div className={styles.content} >
               <Row gutter={11} >
-                <Col span={5} style={{ width: 491}}>
+                <Col span={1} style={{ width: 590}}>
                   <BlockList blocks={blocks}></BlockList>
                 </Col>
-                <Col span={5} style={{ width: 491}}>
+                <Col span={1} style={{ width: 590}}>
                   <TransactionList transactions={transactions}></TransactionList>
                 </Col>
               </Row>

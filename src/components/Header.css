@@ -12,15 +12,17 @@
 }
 
 .header_main {
-    width: 1010px;
+    width: 1170px;
     margin: 0 auto;
     padding: 10px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .logo_box img {
   height: 26px;
   float: left;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .header_wrap .header_main .logo_box {
@@ -40,8 +42,8 @@
 }
 
 .header_wrap .header_main .search_box {
-    width: 700px;
-    float: left;
+    width: 850px;
+    float: right;
     font-size: 0;
     margin-left: 40px;
     position: relative;

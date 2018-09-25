@@ -30,19 +30,23 @@ export default class Node extends PureComponent {
     return (
       <div className={styles.big_wrap}>
         <Header onSearch={this.onSearch} txid={null} />
-        <div className={styles.tab_content}>
-         <List  
-          header={<div>Nodes</div>}   
-          footer={<div></div>}
-          bordered
-          dataSource={data}
-          renderItem={item => (<List.Item>
-            <List.Item.Meta
-              description={item}
-              />
-            </List.Item>
-          )}
-        />
+        <div className={styles.result_pane}>
+
+          <div className={styles.tab_content}>
+           <List  
+            className={styles.tab_content}
+            header={<div>Nodes</div>}   
+            footer={<div></div>}
+            bordered
+            dataSource={data}
+            renderItem={item => (<List.Item>
+              <List.Item.Meta
+                description={item}
+                />
+              </List.Item>
+            )}
+          />
+          </div>
 
         </div>
       </div>
