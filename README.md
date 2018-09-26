@@ -24,14 +24,14 @@ Fabric Explorer
 
   }
 ```
-2. Run `npm start`.
+2. Run `npm install && npm start`.
 
 
 ### Release
 
 
 ```bash
-npm run build
+npm install && npm run build
 ```
 
 After a few seconds, you will see the following information:
