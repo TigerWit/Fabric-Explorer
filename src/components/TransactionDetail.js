@@ -11,7 +11,7 @@ export default class Transaction extends PureComponent {
       <div className={styles.tab_content}> 
         <p>BlockNum: {tranaction.block_info.number}</p> 
         <p>BlockHash: {tranaction.block_info.current_hash}</p>
-        <p>PreviousBockHash: {tranaction.block_info.previous_hash}</p>
+        <p>PreviousBlockHash: {tranaction.block_info.previous_hash}</p>
         <div> Txid: {tranaction.tx_id}</div>
         <div> UserHash: {tranaction.key}</div>
         <div> OrderHash: {tranaction.value}</div>
