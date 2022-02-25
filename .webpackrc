@@ -1,0 +1,17 @@
+{
+  "extraBabelPlugins": [
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+  ],
+  "proxy": {
+    "/v1/api/": {
+      "target": "http://192.168.6.204:8080/",
+      "changeOrigin": false,
+      "pathRewrite": { "^/v1/api" : "" }
+    },
+    "/v1/fabric/": {
+      "target": "http://192.168.6.204:8111/",
+      "changeOrigin": false,
+      "pathRewrite": { "^/v1/fabric" : "" }
+    }
+  }
+}
